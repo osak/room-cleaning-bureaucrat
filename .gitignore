@@ -1,0 +1,4 @@
+run_with_notion_api_key.sh
+.vscode
+.deno_dir
+lambda.zip
