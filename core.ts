@@ -1,7 +1,7 @@
 import { formatISO, parseISO, add, isAfter } from 'npm:date-fns@2.30';
 
 class NotionError {
-    constructor(readonly blob: any) {}
+    constructor(readonly blob: any) { }
 }
 
 interface RawNotionQueryResponse {
@@ -168,15 +168,15 @@ async function updatePageProperty(config: Config, pageId: string, properties: Re
 
 async function markRowAsCompleted(config: Config, row: Row) {
     await updatePageProperty(config, row.id, {
-        "状態": { select: { name: "まだ" }},
-        "最後にやった日": { date: { start: formatISO(row.lastEdited) }},
-        "次にやる日": { date: { start: formatISO(add(row.lastEdited, row.frequency)) }}
+        "状態": { select: { name: "まだ" } },
+        "最後にやった日": { date: { start: formatISO(row.lastEdited) } },
+        "次にやる日": { date: { start: formatISO(add(row.lastEdited, row.frequency)) } }
     });
 }
 
 async function markRowAsTodo(config: Config, row: Row) {
     await updatePageProperty(config, row.id, {
-        "状態": { select: { name: "やる" }},
+        "状態": { select: { name: "やる" } },
     });
 }
 
