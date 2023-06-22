@@ -9,16 +9,16 @@ export async function handler(
   event: APIGatewayProxyEventV2,
   context: Context,
 ): Promise<APIGatewayProxyResultV2> {
-    const config: Config = {
-        apiKey: Deno.env.get('NOTION_API_KEY')!,
-        databaseId: Deno.env.get('NOTION_DATABASE_ID')!,
-    };
+  const config: Config = {
+    apiKey: Deno.env.get("NOTION_API_KEY")!,
+    databaseId: Deno.env.get("NOTION_DATABASE_ID")!,
+  };
 
-    await run(config);
+  await run(config);
 
-    return {
-        body: 'Done',
-        headers: { "content-type": "text/html;charset=utf8" },
-        statusCode: 200,
-    };
+  return {
+    body: "Done",
+    headers: { "content-type": "text/html;charset=utf8" },
+    statusCode: 200,
+  };
 }
